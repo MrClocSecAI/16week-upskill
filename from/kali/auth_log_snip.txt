@@ -1,0 +1,20 @@
+2025-03-16T19:54:15.005171-07:00 ubuntu sshd[4631]: Connection closed by authenticating user ubuntu 192.168.56.102 port 53116 [preauth]
+2025-03-16T19:54:15.006802-07:00 ubuntu sshd[4631]: PAM 3 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.102  user=ubuntu
+2025-03-16T19:54:15.006853-07:00 ubuntu sshd[4631]: PAM service(sshd) ignoring max retries; 4 > 3
+2025-03-16T19:54:15.016043-07:00 ubuntu sshd[4627]: error: maximum authentication attempts exceeded for ubuntu from 192.168.56.102 port 53086 ssh2 [preauth]
+2025-03-16T19:54:15.016175-07:00 ubuntu sshd[4627]: Disconnecting authenticating user ubuntu 192.168.56.102 port 53086: Too many authentication failures [preauth]
+2025-03-16T19:54:15.016346-07:00 ubuntu sshd[4627]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.102  user=ubuntu
+2025-03-16T19:54:15.016446-07:00 ubuntu sshd[4627]: PAM service(sshd) ignoring max retries; 6 > 3
+2025-03-16T19:54:15.027361-07:00 ubuntu sshd[4629]: error: maximum authentication attempts exceeded for ubuntu from 192.168.56.102 port 53102 ssh2 [preauth]
+2025-03-16T19:54:15.027416-07:00 ubuntu sshd[4629]: Disconnecting authenticating user ubuntu 192.168.56.102 port 53102: Too many authentication failures [preauth]
+2025-03-16T19:54:15.027450-07:00 ubuntu sshd[4629]: PAM 5 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.56.102  user=ubuntu
+2025-03-16T19:54:15.027474-07:00 ubuntu sshd[4629]: PAM service(sshd) ignoring max retries; 6 > 3
+2025-03-16T19:55:01.885389-07:00 ubuntu CRON[4637]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2025-03-16T19:55:01.889222-07:00 ubuntu CRON[4637]: pam_unix(cron:session): session closed for user root
+2025-03-16T20:05:01.894581-07:00 ubuntu CRON[4652]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2025-03-16T20:05:01.899027-07:00 ubuntu CRON[4652]: pam_unix(cron:session): session closed for user root
+2025-03-16T20:09:16.905916-07:00 ubuntu sshd[4682]: Accepted password for ubuntu from 192.168.56.102 port 52264 ssh2
+2025-03-16T20:09:16.907802-07:00 ubuntu sshd[4682]: pam_unix(sshd:session): session opened for user ubuntu(uid=1000) by ubuntu(uid=0)
+2025-03-16T20:09:16.912521-07:00 ubuntu systemd-logind[664]: New session 46 of user ubuntu.
+2025-03-16T20:11:04.820866-07:00 ubuntu sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/tail -n 20 /var/log/auth.log
+2025-03-16T20:11:04.821252-07:00 ubuntu sudo: pam_unix(sudo:session): session opened for user root(uid=0) by ubuntu(uid=1000)

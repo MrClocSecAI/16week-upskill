@@ -1,0 +1,17 @@
+OpenSSH_9.9p2 Debian-1, OpenSSL 3.4.1 11 Feb 2025
+debug1: Local version string SSH-2.0-OpenSSH_9.9p2 Debian-1
+debug1: Remote protocol version 2.0, remote software version OpenSSH_9.6p1 Ubuntu-3ubuntu13.8
+debug1: compat_banner: match: OpenSSH_9.6p1 Ubuntu-3ubuntu13.8 pat OpenSSH* compat 0x04000000
+debug1: kex: algorithm: sntrup761x25519-sha512@openssh.com
+debug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none
+debug1: kex_ext_info_client_parse: server-sig-algs=<ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256>
+debug1: kex_ext_info_check_ver: publickey-hostbound@openssh.com=<0>
+debug1: kex_ext_info_check_ver: ping@openssh.com=<0>
+debug1: kex_ext_info_client_parse: server-sig-algs=<ssh-ed25519,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ssh-ed25519@openssh.com,sk-ecdsa-sha2-nistp256@openssh.com,rsa-sha2-512,rsa-sha2-256>
+Permission denied, please try again.
+Permission denied, please try again.
+root@192.168.56.104: Permission denied (publickey,password).
+Permission denied, please try again.
+Permission denied, please try again.
+ubuntu@192.168.56.104: Permission denied (publickey,password).

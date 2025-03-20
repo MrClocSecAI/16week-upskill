@@ -1,0 +1,9 @@
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-03-16 17:51 PDT
+Nmap scan report for 192.168.56.101
+Host is up (0.00030s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 08:00:27:60:32:65 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 4.66 seconds

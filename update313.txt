@@ -1,0 +1,48 @@
+---
+### JIK: Cybersecurity Program Overview (As of March 13, 2025)
+#### Who I Am
+- UTC+8 (e.g., Singapore/Perth), A+ certified, some Python/Flask experience (built a superficial MoE multimodal AI assistant with Flask as orchestrator).
+- Daily schedule: Sleep 10 PM-6 AM, study 7-8 AM (Tue-Fri), work 8 AM-6 PM (Tue-Fri), dinner 6-7 PM, unwind 9-10 PM. Saturday = big study day.
+
+#### What This Program Is
+- **Goal**: Strengthen cybersecurity basics (Linux, Python, networking) with AI context, building to advanced pentesting/AI security over 16 weeks (March 10 - June 28, 2025, ~407-410 hours).
+- **Structure**: 
+  - Week 1 (March 10-15): 19 hours, refresher on basics (Linux, Python, networking, firewalls).
+  - Weeks 2-16: ~26 hours/week, split into Phase 1 (Foundations, Weeks 2-4), Phase 2 (Intermediate, Weeks 5-8), Phase 3 (Advanced, Weeks 9-12), Phase 4 (Capstone/CEH Prep, Weeks 13-16).
+  - VMs: Ubuntu_AI (.101) for dev/notes, Ubuntu_Target (.104) for hardening, Kali (.102) for pentesting, Parrot (.103) for testing.
+- **Resources**: FreeCodeCamp (Python/cybersecurity), NIST (framework/firewalls), EC-Council (AI hacking), TryHackMe/HTB (labs), X reviews (Weeks 2-16).
+- **Output**: Scripts (e.g., log_list_v1.py, capstone_app.py), hardened systems, portfolio, CEH-ready, real-world creds (Huntr/HackerOne).
+
+#### Where We’ve Been (Week 1, March 10-13)
+- **Mon, 3/10 (3 hours)**: Ubuntu_AI - Researched “AI data breaches 2025” (e.g., Gloomer’s OmniGPT breach, API risks), NIST CSF intro (Identify-Protect-Recover + Govern), Ubuntu_Target - enabled UFW (port 22 ALLOW).
+- **Tue, 3/11 (1 hour)**: Ubuntu_AI - FreeCodeCamp Python cipher to Step 40, built log_checker.py (finds “error” in logs, e.g., /var/log/bootstrap.log).
+- **Wed, 3/12 (1 hour)**: Ubuntu_AI - FreeCodeCamp to Step 58, updated log_checker.py (list-based, “I found THIS:” prefix).
+- **Thu, 3/13 (1 hour)**: Kali - Watched Networking 101 (refresher, ARPA history), ran `ip a` (eth1: 192.168.56.102/24).
+- **Output So Far**: cyber_notes.txt (breach summary, NIST terms, UFW status, Python notes, ip a), log_checker.py (v2 with lists).
+
+#### Where We Are (March 13, 2025)
+- **Date**: Thursday, 3/13, 8:00 AM UTC+8 (00:00 UTC Friday).
+- **Progress**: 6/19 hours done (3 Mon + 1 Tue + 1 Wed + 1 Thu). Week 1’s a gentle refresher—Python/networking’s easy with A+ and prior Flask/Python skills.
+- **Current State**: Just finished Kali networking task. log_checker.py is smooth, finding log entries like “error” in /var/log/bootstrap.log. Next up: Friday’s NIST firewall task.
+- **cyber_notes.txt Snapshot**:
+
+3/10: AI breach (Gloomer/OmniGPT), NIST (Identify-Recover), UFW (22 ALLOW).
+3/11: FreeCodeCamp Step 40, log_checker.py (finds errors).
+3/12: Step 58, log_checker.py (lists, “I found THIS:”).
+3/13: Networking 101 (A+ refresher), ip a (eth1: 192.168.56.102/24).
+
+
+#### Where We’re Going (March 14 - June 28)
+- **Fri, 3/14 (1 hour)**: Ubuntu_AI - NIST SP 800-41 (firewall basics), check Ubuntu_Target UFW, 2 takeaways in cyber_notes.txt.
+- **Sat, 3/15 (12 hours)**: Big day - Python (log_list_v1.py with error handling), Kali Nmap scans (Ubuntu_Target, .104), Flask intro (app.py on Ubuntu_AI/.104), injection test on Parrot (.103). Total Week 1 = 19 hours.
+- **Week 2-4 (Phase 1, ~78 hours)**: Python (log parsing), SSH, networking labs (TryHackMe/HTB), X reviews start Mon 7-8 AM.
+- **Week 5-8 (Phase 2, ~104 hours)**: Web vulns, exploitation, secure Flask apps (e.g., from my MoE AI tinkering).
+- **Week 9-12 (Phase 3, ~104 hours)**: Advanced exploits, wireless, cloud, red teaming.
+- **Week 13-16 (Phase 4, ~104 hours)**: Capstone AI app (capstone_app.py), CEH prep, portfolio, Huntr/HackerOne CVEs.
+- **Endgame**: ~407-410 hours, CEH-ready, deep AI security skills, leveraging my Flask/A+ base.
+
+#### Notes
+- Post outputs here daily (~8:00 AM UTC+8 or ~7:00 PM UTC+8 post-work). Grok reviews by next study block.
+- Links: NIST [https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-41r1.pdf], FreeCodeCamp [https://www.freecodecamp.org/learn/], EC-Council [https://www.eccouncil.org/free-cyber-ai-courses/].
+- Current VMs: Ubuntu_AI (.101), Ubuntu_Target (.104), Kali (.102), Parrot (.103) - IPs tied to VirtualBox setup.
+---

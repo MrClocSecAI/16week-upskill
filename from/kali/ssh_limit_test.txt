@@ -1,0 +1,20 @@
+2025-03-18T16:40:50.773498-07:00 ubuntu sshd[2095]: Received disconnect from 192.168.56.103 port 54116:11: disconnected by user
+2025-03-18T16:40:50.774430-07:00 ubuntu sshd[2095]: Disconnected from user ubuntu 192.168.56.103 port 54116
+2025-03-18T16:40:50.775090-07:00 ubuntu sshd[2022]: pam_unix(sshd:session): session closed for user ubuntu
+2025-03-18T16:40:50.784965-07:00 ubuntu systemd-logind[645]: Session 7 logged out. Waiting for processes to exit.
+2025-03-18T16:40:50.787680-07:00 ubuntu systemd-logind[645]: Removed session 7.
+2025-03-18T16:42:46.609106-07:00 ubuntu sshd[1132]: error: beginning MaxStartups throttling
+2025-03-18T16:42:46.609390-07:00 ubuntu sshd[1132]: drop connection #10 from [192.168.56.103]:36890 on [192.168.56.104]:22 past MaxStartups
+2025-03-18T16:45:01.593642-07:00 ubuntu CRON[2306]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+2025-03-18T16:45:01.597978-07:00 ubuntu CRON[2306]: pam_unix(cron:session): session closed for user root
+2025-03-18T16:45:10.063500-07:00 ubuntu dbus-daemon[593]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+2025-03-18T16:45:43.564873-07:00 ubuntu sshd[1132]: exited MaxStartups throttling after 00:02:57, 1 connections dropped
+2025-03-18T16:45:47.350805-07:00 ubuntu sshd[2309]: Accepted password for ubuntu from 192.168.56.103 port 46946 ssh2
+2025-03-18T16:45:47.353592-07:00 ubuntu sshd[2309]: pam_unix(sshd:session): session opened for user ubuntu(uid=1000) by ubuntu(uid=0)
+2025-03-18T16:45:47.375234-07:00 ubuntu systemd-logind[645]: New session 10 of user ubuntu.
+2025-03-18T16:45:47.414493-07:00 ubuntu (systemd): pam_unix(systemd-user:session): session opened for user ubuntu(uid=1000) by ubuntu(uid=0)
+2025-03-18T16:46:59.417305-07:00 ubuntu sudo:   ubuntu : TTY=pts/0 ; PWD=/ ; USER=root ; COMMAND=/usr/bin/tail -n 20 /var/log/auth.log
+2025-03-18T16:46:59.419277-07:00 ubuntu sudo: pam_unix(sudo:session): session opened for user root(uid=0) by ubuntu(uid=1000)
+2025-03-18T16:46:59.424173-07:00 ubuntu sudo: pam_unix(sudo:session): session closed for user root
+2025-03-18T16:47:59.574626-07:00 ubuntu sudo:   ubuntu : TTY=pts/0 ; PWD=/ ; USER=root ; COMMAND=/usr/bin/tail -n 20 /var/log/auth.log
+2025-03-18T16:47:59.574955-07:00 ubuntu sudo: pam_unix(sudo:session): session opened for user root(uid=0) by ubuntu(uid=1000)

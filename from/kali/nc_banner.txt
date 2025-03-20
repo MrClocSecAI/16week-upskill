@@ -1,0 +1,4 @@
+192.168.56.101: inverse host lookup failed: Unknown host
+(UNKNOWN) [192.168.56.101] 22 (ssh) open
+SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.8
+

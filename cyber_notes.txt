@@ -1,0 +1,642 @@
+Week 1
+3/10
+1) 3 sentence summary tying an incident to AI risks.
+
+A hacker named Gloomer has reportedly breached OmniGPT and retrieved the data for millions of users. While the incident is not yet confirmed it points to the dangers that can occur as threat actors exploit vulnerable APIs. Unfortunately APIs and databases are not being appropriately hardened as the risks of a databreach continue to increase.
+
+2) 3 terms from the NIST video.
+
+The NIST links you have provided are not valid. But the framework is "Identify, Detect, Protect, Respond, Recover." "Govern" has recently been added as a 6th frame. 
+
+3) Document ufw status on Ubuntu_Target.
+
+22, ALLOW, Anywhere
+22 (v6), ALLOW, Anywhere (v6) 
+
+3/11
+
+completed first 40 steps in freecodecamp python cipher course.
+
+created python log checker. It successfully finds multiple errors like "Found 'error' in /var/log/bootstrap.log: Setting up libgpg-error0:amd64 (1.47-3build2) ..."
+
+3/12
+
+The video link is invalid so I continued to step 58 in the freeCodeCamp course.
+
+I update log_checker.py to provide a list. I added 'I found THIS:' to the beginning of each item for additional clarity.
+
+3/13
+
+Watched youtube refresher video on networking. I am alreay A+ certified, but this was a good refresher. I sped up the video to watch. Great networking basics, and it's nice to see that history hasn't changed. It still all began with ARPA (kinda).
+
+Ran ip a on kali. Here is the result:
+
+"1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:00:45:b4 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic eth0
+       valid_lft 86350sec preferred_lft 86350sec
+    inet6 fe80::a00:27ff:fe00:45b4/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever
+3: eth1: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:fc:4e:3b brd ff:ff:ff:ff:ff:ff
+    inet 192.168.56.102/24 brd 192.168.56.255 scope global eth1
+       valid_lft forever preferred_lft forever
+    inet6 fe80::a00:27ff:fefc:4e3b/64 scope link proto kernel_ll
+       valid_lft forever preferred_lft forever" 
+
+03/14
+
+1) Read "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-41r1.pdf" - Stateless packet filters are vulnerable to IP Spoofing. A UTM can simplify security management but may strain resources and provide a less than complete solution that is not able to achieve all of its objectives. 
+
+2) Ran "sudo ufw status" on Ubuntu_Traget. The firewall is still set to allow anywhere for 22 and 22 (v6).
+
+
+03/15
+
+1) Updated log_checker.py with list_logs(). Output now includes results similar to "I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T16:14:03.596174-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems."
+
+2) The task was to use ssh to copy log_checker.py from ubuntu_ai to ubuntu_target and run it. ssh was not connecting even though the port was open. grok took the role of mentor, now i know how to troubleshoot and resolve this issue. i installed and enabled ssh on ubuntu_target. I was then able to copy the file to a directory i had already created "~/Desktop/class/" then log in to 192.168.56.104 with ssh and run the file. Here are two examples of logs in the list:
+"I found THIS: Found 'error' in /var/log/gpu-manager.log: Error: can't access /sys/bus/pci/devices/0000:00:02.0/driver
+I found THIS: Found 'error' in /var/log/gpu-manager.log: Error : Failed to open /dev/dri"
+ 
+3) Updated log_checker.py. Recieved error about improper indentation on line 18. remembered that i'd added a tab for speed when indenting, deleted and indented correctly with spaces only. worked. here are a few errors:
+"I found THIS: Permission denied: /var/log/boot.log
+I found THIS: Found 'error' in /var/log/bootstrap.log: 2025-02-15 08:08:50 URL:http://ftpmaster.internal/ubuntu/pool/main/libg/libgpg-error/libgpg-error0_1.47-3build2_amd64.deb [69990/69990] -> "/build/chroot//var/cache/apt/archives/partial/libgpg-error0_1.47-3build2_amd64.deb" [1]
+I found THIS: Found 'error' in /var/log/bootstrap.log: Selecting previously unselected package libgpg-error0:amd64.
+I found THIS: Found 'error' in /var/log/bootstrap.log: Preparing to unpack .../libgpg-error0_1.47-3build2_amd64.deb ...
+I found THIS: Found 'error' in /var/log/bootstrap.log: Unpacking libgpg-error0:amd64 (1.47-3build2) ...
+I found THIS: Found 'error' in /var/log/bootstrap.log: Setting up libgpg-error0:amd64 (1.47-3build2) ..."
+
+with sudo:
+
+"I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T17:15:56.924745-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/bootstrap.log: 2025-02-15 08:08:50 URL:http://ftpmaster.internal/ubuntu/pool/main/libg/libgpg-error/libgpg-error0_1.47-3build2_amd64.deb [69990/69990] -> "/build/chroot//var/cache/apt/archives/partial/libgpg-error0_1.47-3build2_amd64.deb" [1]
+I found THIS: Found 'error' in /var/log/bootstrap.log: Selecting previously unselected package libgpg-error0:amd64.
+I found THIS: Found 'error' in /var/log/bootstrap.log: Preparing to unpack .../libgpg-error0_1.47-3build2_amd64.deb ...
+I found THIS: Found 'error' in /var/log/bootstrap.log: Unpacking libgpg-error0:amd64 (1.47-3build2) ...
+I found THIS: Found 'error' in /var/log/bootstrap.log: Setting up libgpg-error0:amd64 (1.47-3build2) ..."
+
+I don't see differences, but that could be because this is a fresh vm build... i'm sure my mentor grok will provide insight in the output evaluation.
+Now log_list_v1.py(complete):
+"I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:06 install libgpg-error0:amd64 <none> 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:06 status half-installed libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:06 status unpacked libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:09 configure libgpg-error0:amd64 1.47-3build2 <none>
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:09 status unpacked libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:09 status half-configured libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:09 status installed libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:43 install libgpg-error-l10n:all <none> 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:43 status half-installed libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:43 status unpacked libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:44 configure libgpg-error-l10n:all 1.47-3build2 <none>
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:44 status unpacked libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:44 status half-configured libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:44 status installed libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 upgrade libgpg-error-l10n:all 1.47-3build2 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-configured libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-installed libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error-l10n:all 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 upgrade libgpg-error0:amd64 1.47-3build2 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-configured libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-installed libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error0:amd64 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 configure libgpg-error0:amd64 1.47-3build2.1 <none>
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error0:amd64 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-configured libgpg-error0:amd64 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status installed libgpg-error0:amd64 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:10:04 configure libgpg-error-l10n:all 1.47-3build2.1 <none>
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:10:04 status unpacked libgpg-error-l10n:all 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:10:04 status half-configured libgpg-error-l10n:all 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:10:04 status installed libgpg-error-l10n:all 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T10:10:58.151023+00:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T10:10:58.154371+00:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T10:10:58.154371+00:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T10:10:58.154372+00:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:27:20.761894-08:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:27:20.762075-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:27:20.762078-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:27:20.762078-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:29:09.907297-08:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:29:09.907450-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:29:09.907450-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:29:09.907454-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T04:19:34.088876-08:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T04:19:34.089044-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T04:19:34.089044-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T04:19:34.089045-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T00:02:32.114764-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T00:02:32.114927-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T00:02:32.114931-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T00:02:32.114931-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:37:16.862164-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:37:16.862354-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:37:16.862354-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:37:16.862355-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:38:51.428863-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:38:51.429025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:38:51.429025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:38:51.429025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-11T15:48:05.272864-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-11T15:48:05.273021-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-11T15:48:05.273025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-11T15:48:05.273025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-12T15:55:51.058660-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-12T15:55:51.058895-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-12T15:55:51.058895-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-12T15:55:51.058896-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-13T15:53:12.341172-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-13T15:53:12.341373-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-13T15:53:12.341377-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-13T15:53:12.341377-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T16:14:03.595990-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T16:14:03.596173-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T16:14:03.596174-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T16:14:03.596174-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T17:15:56.924551-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T17:15:56.924744-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T17:15:56.924744-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T17:15:56.924745-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Permission denied: /var/log/boot.log
+I found THIS: Found 'error' in /var/log/bootstrap.log: 2025-02-15 08:08:50 URL:http://ftpmaster.internal/ubuntu/pool/main/libg/libgpg-error/libgpg-error0_1.47-3build2_amd64.deb [69990/69990] -> "/build/chroot//var/cache/apt/archives/partial/libgpg-error0_1.47-3build2_amd64.deb" [1]
+I found THIS: Found 'error' in /var/log/bootstrap.log: Selecting previously unselected package libgpg-error0:amd64.
+I found THIS: Found 'error' in /var/log/bootstrap.log: Preparing to unpack .../libgpg-error0_1.47-3build2_amd64.deb ...
+I found THIS: Found 'error' in /var/log/bootstrap.log: Unpacking libgpg-error0:amd64 (1.47-3build2) ...
+I found THIS: Found 'error' in /var/log/bootstrap.log: Setting up libgpg-error0:amd64 (1.47-3build2) ..."
+
+with sudo(complete):
+"[sudo] password for ubuntu:
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:06 install libgpg-error0:amd64 <none> 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:06 status half-installed libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:06 status unpacked libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:09 configure libgpg-error0:amd64 1.47-3build2 <none>
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:09 status unpacked libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:09 status half-configured libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:09 status installed libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:43 install libgpg-error-l10n:all <none> 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:43 status half-installed libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:43 status unpacked libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:44 configure libgpg-error-l10n:all 1.47-3build2 <none>
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:44 status unpacked libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:44 status half-configured libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:44 status installed libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 upgrade libgpg-error-l10n:all 1.47-3build2 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-configured libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-installed libgpg-error-l10n:all 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error-l10n:all 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 upgrade libgpg-error0:amd64 1.47-3build2 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-configured libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-installed libgpg-error0:amd64 1.47-3build2
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error0:amd64 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 configure libgpg-error0:amd64 1.47-3build2.1 <none>
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status unpacked libgpg-error0:amd64 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status half-configured libgpg-error0:amd64 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:09:58 status installed libgpg-error0:amd64 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:10:04 configure libgpg-error-l10n:all 1.47-3build2.1 <none>
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:10:04 status unpacked libgpg-error-l10n:all 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:10:04 status half-configured libgpg-error-l10n:all 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/dpkg.log: 2025-02-15 08:10:04 status installed libgpg-error-l10n:all 1.47-3build2.1
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T10:10:58.151023+00:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T10:10:58.154371+00:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T10:10:58.154371+00:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T10:10:58.154372+00:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:27:20.761894-08:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:27:20.762075-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:27:20.762078-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:27:20.762078-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:29:09.907297-08:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:29:09.907450-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:29:09.907450-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T02:29:09.907454-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T04:19:34.088876-08:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T04:19:34.089044-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T04:19:34.089044-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-08T04:19:34.089045-08:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T00:02:32.114764-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T00:02:32.114927-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T00:02:32.114931-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T00:02:32.114931-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:37:16.862164-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:37:16.862354-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:37:16.862354-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:37:16.862355-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:38:51.428863-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:38:51.429025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:38:51.429025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-10T14:38:51.429025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-11T15:48:05.272864-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-11T15:48:05.273021-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-11T15:48:05.273025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-11T15:48:05.273025-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-12T15:55:51.058660-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-12T15:55:51.058895-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-12T15:55:51.058895-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-12T15:55:51.058896-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-13T15:53:12.341172-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-13T15:53:12.341373-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-13T15:53:12.341377-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-13T15:53:12.341377-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T16:14:03.595990-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T16:14:03.596173-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T16:14:03.596174-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T16:14:03.596174-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T17:15:56.924551-07:00 ubuntu kernel: RAS: Correctable Errors collector initialized.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T17:15:56.924744-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* vmwgfx seems to be running on an unsupported hypervisor.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T17:15:56.924744-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* This configuration is likely broken.
+I found THIS: Found 'error' in /var/log/kern.log: 2025-03-14T17:15:56.924745-07:00 ubuntu kernel: vmwgfx 0000:00:02.0: [drm] *ERROR* Please switch to a supported graphics device to avoid problems.
+I found THIS: Found 'error' in /var/log/bootstrap.log: 2025-02-15 08:08:50 URL:http://ftpmaster.internal/ubuntu/pool/main/libg/libgpg-error/libgpg-error0_1.47-3build2_amd64.deb [69990/69990] -> "/build/chroot//var/cache/apt/archives/partial/libgpg-error0_1.47-3build2_amd64.deb" [1]
+I found THIS: Found 'error' in /var/log/bootstrap.log: Selecting previously unselected package libgpg-error0:amd64.
+I found THIS: Found 'error' in /var/log/bootstrap.log: Preparing to unpack .../libgpg-error0_1.47-3build2_amd64.deb ...
+I found THIS: Found 'error' in /var/log/bootstrap.log: Unpacking libgpg-error0:amd64 (1.47-3build2) ...
+I found THIS: Found 'error' in /var/log/bootstrap.log: Setting up libgpg-error0:amd64 (1.47-3build2) ..."
+
+I do see "Permission denied" without sudo.
+
+Changed keyword to "fail" and ran w/sudo(complete):
+"I found THIS: Found 'fail' in /var/log/cloud-init.log: 2025-03-08 10:11:01,137 - main.py[DEBUG]: Ran 10 modules with 0 failures
+I found THIS: Found 'fail' in /var/log/cloud-init.log: 2025-03-08 10:11:02,942 - main.py[DEBUG]: Ran 6 modules with 0 failures
+I found THIS: Found 'fail' in /var/log/cloud-init.log: 2025-03-08 10:11:21,244 - main.py[DEBUG]: Ran 11 modules with 0 failures
+I found THIS: Found 'fail' in /var/log/boot.log: Starting grub-initrd-fallback.service - GRUB failed boot detection...
+I found THIS: Found 'fail' in /var/log/boot.log: [  OK  ] Finished grub-initrd-fallback.service - GRUB failed boot detection.
+I found THIS: Found 'fail' in /var/log/boot.log: [DEPEND] Dependency failed for sssd-nss.soc… SSSD NSS Service responder socket.
+I found THIS: Found 'fail' in /var/log/boot.log: [DEPEND] Dependency failed for sssd-autofs.…SD AutoFS Service responder socket.
+I found THIS: Found 'fail' in /var/log/boot.log: [DEPEND] Dependency failed for sssd-pac.soc… SSSD PAC Service responder socket.
+I found THIS: Found 'fail' in /var/log/boot.log: [DEPEND] Dependency failed for sssd-pam-pri…M Service responder private socket.
+I found THIS: Found 'fail' in /var/log/boot.log: [DEPEND] Dependency failed for sssd-pam.soc… SSSD PAM Service responder socket.
+I found THIS: Found 'fail' in /var/log/boot.log: [DEPEND] Dependency failed for sssd-ssh.soc… SSSD SSH Service responder socket.
+I found THIS: Found 'fail' in /var/log/boot.log: [DEPEND] Dependency failed for sssd-sudo.so…SSSD Sudo Service responder socket.
+I found THIS: Found 'fail' in /var/log/boot.log: Starting grub-initrd-fallback.service - GRUB failed boot detection...
+I found THIS: Found 'fail' in /var/log/boot.log: [  OK  ] Finished grub-initrd-fallback.service - GRUB failed boot detection.
+I found THIS: Found 'fail' in /var/log/bootstrap.log: /usr/lib/tmpfiles.d/systemd-network.conf:10: Failed to resolve user 'systemd-network': No such process
+I found THIS: Found 'fail' in /var/log/bootstrap.log: /usr/lib/tmpfiles.d/systemd-network.conf:11: Failed to resolve user 'systemd-network': No such process
+I found THIS: Found 'fail' in /var/log/bootstrap.log: /usr/lib/tmpfiles.d/systemd-network.conf:12: Failed to resolve user 'systemd-network': No such process
+I found THIS: Found 'fail' in /var/log/bootstrap.log: /usr/lib/tmpfiles.d/systemd-network.conf:13: Failed to resolve user 'systemd-network': No such process
+I found THIS: Found 'fail' in /var/log/bootstrap.log: /usr/lib/tmpfiles.d/systemd.conf:22: Failed to resolve group 'systemd-journal': No such process
+I found THIS: Found 'fail' in /var/log/bootstrap.log: /usr/lib/tmpfiles.d/systemd.conf:23: Failed to resolve group 'systemd-journal': No such process
+I found THIS: Found 'fail' in /var/log/bootstrap.log: /usr/lib/tmpfiles.d/systemd.conf:28: Failed to resolve group 'systemd-journal': No such process
+I found THIS: Found 'fail' in /var/log/bootstrap.log: /usr/lib/tmpfiles.d/systemd.conf:29: Failed to resolve group 'systemd-journal': No such process
+I found THIS: Found 'fail' in /var/log/bootstrap.log: /usr/lib/tmpfiles.d/systemd.conf:30: Failed to resolve group 'systemd-journal': No such process
+I found THIS: Found 'fail' in /var/log/auth.log: 2025-03-08T05:09:10.974677-08:00 ubuntu dbus-daemon[826]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+I found THIS: Found 'fail' in /var/log/auth.log: 2025-03-10T00:49:59.242597-07:00 ubuntu dbus-daemon[827]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+I found THIS: Found 'fail' in /var/log/auth.log: 2025-03-10T15:00:41.583119-07:00 ubuntu dbus-daemon[826]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+I found THIS: Found 'fail' in /var/log/auth.log: 2025-03-11T16:13:47.761633-07:00 ubuntu dbus-daemon[678]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+I found THIS: Found 'fail' in /var/log/auth.log: 2025-03-12T16:04:26.780923-07:00 ubuntu dbus-daemon[836]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+I found THIS: Found 'fail' in /var/log/auth.log: 2025-03-13T16:14:09.042913-07:00 ubuntu dbus-daemon[655]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+I found THIS: Found 'fail' in /var/log/auth.log: 2025-03-14T16:18:22.121385-07:00 ubuntu dbus-daemon[697]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+I found THIS: Found 'fail' in /var/log/auth.log: 2025-03-14T18:01:17.034144-07:00 ubuntu dbus-daemon[559]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)"
+
+The keyword provides a useful method to target log entries using specified parameters. this could be useful indentifying different types of vulnerabilities in files, and/or classifying flaws.
+
+4) I was able to scan ubuntu_target (.104) with nmap and log the results in scan.txt. Here is the output:
+"Nmap 7.95 scan initiated Fri Mar 14 22:14:18 2025 as: /usr/lib/nmap/nmap ->
+Nmap scan report for 192.168.56.104
+Host is up (0.00026s latency).
+MAC Address: 08:00:27:B3:CC:52 (PCS Systemtechnik/Oracle VirtualBox virtual >
+# Nmap done at Fri Mar 14 22:14:19 2025 -- 1 IP address (1 host up) scanned >"
+Ran nmap -sn 192.168.56.104 on Kali (.102). First step in AI server recon—confirmed .104 is live for pentesting.
+
+5)
+5) Ran nmap -sV 192.168.56.104 on Kali (.102) at 2025-03-14 22:42 PST. Saved to scan_sv.txt:
+"22/TCP open ssh OpenSSH 9.6p1
+MAC Address 08:00:27:B3:CC:52
+Nmap done: 1 IP address (1 host up) scanned in 6.20 seconds"
+
+Deeper AI server recon—services identified.
+
+5.5)
+Opened port 22 on ubuntu_ai (.101) at 2025-03-14 23:24 PST. Ran sudo ufw allow from 192.168.56.0/24 to any port 22, confirmed with sudo ufw status: "22 ALLOW 192.168.56.0/24". SSH enabled for lab access—VPN on enp0s3, Host-Only on enp0s8. VM clock on PST (UTC-7).
+
+Hardened SSH: PermitRootLogin no, PasswordAuthentication no, added key from .102. Restarted, ssh—key-only access now.
+
+6)
+Ran sudo iptables -L -v -n --line-numbers on Ubuntu_Target (.104) at 2025-03-15 03:15 PST. Saved to iptables.txt: "ACCEPT tcp dpt:22, ACCEPT state RELATED,ESTABLISHED". Baseline for AI server firewall—SSH allowed.
+
+7)
+Ran nmap -sV -sC -O 192.168.56.104 on Kali (.102) at 2025-03-15 00:29 PST. Saved to scan_full.txt: "22/tcp open ssh OpenSSH 9.6p1, OS Linux 5.15-6.0". Full AI server recon—vuln check complete.
+Here is the output:
+"Starting Nmap 7.95 ( https://nmap.org ) at 2025-03-15 00:29 PDT
+Nmap scan report for 192.168.56.104
+Host is up (0.00027s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.8 (Ubuntu Linux; protocol 2.0)
+MAC Address: 08:00:27:B3:CC:52 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Aggressive OS guesses: Linux 4.15 - 5.19 (97%), Linux 4.19 (97%), Linux 5.0 - 5.14 (97%), OpenWrt 21.02 (Linux 5.4) (97%), MikroTik RouterOS 7.2 - 7.5 (Linux 5.6.3) (97%), Linux 6.0 (95%), Linux 5.4 - 5.10 (91%), Linux 2.6.32 (91%), Linux 2.6.32 - 3.13 (91%), Linux 3.10 - 4.11 (91%)
+No exact OS matches for host (test conditions non-ideal).
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 15.70 seconds"
+
+8)
+Hardened ubuntu_target with "suddo iptable -A INPUT -p tcp --dport 80 -j DROP" to pevent access through the standard http port 80. Tested with Parrot using "curl 192.168.56.104:80" - Parrot failed to connect after 133373 ms. Completed at 01:15 PST (16:15 UTC +8).
+
+Tested! Good. 
+
+9)
+Already have the ChatGPT for ethical hacking course cert from EC council. Done! :-)
+
+10)
+Created an app.py flask app in ubuntu_ai. Created new ufw rule (sudo ufw allow 5000) to allow access for testing. Used Kali instead of parrot for curl, got "Hello from Ubuntu_AI!" message. Flask is now installed in the flask_env environment.
+Chose to install env to create flask enviro because it will likely be useful later for other tasks like running small ai models, or building other pyhton tools.
+Closed access to port 5000 on ubuntu_ai with "sudo ufw delete 5000".
+
+11)
+2025-03-15: Installed Flask on .104 with 'python3 -m venv ~/flask_env && pip install flask'.
+Created app.py—echoes user input on port 5000.
+Allowed 5000 with 'sudo ufw allow 5000'.
+Got 404 on 'curl http://192.168.56.104:5000/?input=Hello'—troubleshooted and added missing "@" to app.route.
+Tested: "Echo: Hello" worked, then injected '<script>alert('hacked')</script>'—returned raw, XSS vuln confirmed.
+AI vuln tie-in: Unsanitized input risks data leaks or code execution.
+Ended flask app, deactivated enviro, and closed port 5000.
+
+2025-03-15 (Step 7): Reviewed Steps 10-11.
+- .101: Flask "Hello" worked, port 5000 closed—secure baseline for AI apps.
+- .104: Flask echoed input, fixed 404 (missing @), confirmed XSS vuln, closed 5000.
+- Logs: Flask logged GET requests—useful for auditing AI API calls.
+- Lessons: Harden APIs (input sanitization), minimize open ports, test vulns early.
+- AI link: Unsanitized endpoints = data breach risk (e.g., OmniGPT).
+
+End Week 1
+
+Begin Week 2
+
+03/17
+
+1) Updated "log_list_v1.py" to add csv creation and renamed "log_list_v2.py". Here is a log of the task:
+- Updated the file in in .101.
+- In the terminal for .102 used scp to pull the file from .101 to .102, then scp'ed the file to .104.
+- From .102 ssh'ed into .104 and ran the file. The file output the logs to the terminal but did not create the the expected csv file.
+- After troubleshooting the .py file, I corrected the path to create the csv file in .104. Pan the .py file and the csv file was created as expected. Copied the debugged .py file back to .102 and then .101.
+- Used scp to copy errors.csv from .104 to .102, then from .102 to .101.
+Here are the suggested Notes from you (Grok3):
+
+"1) Upgraded log_list_v1.py to log_list_v2.py—Python Log Parser v2 with CSV Export
+- Time: March 17, 2025, 07:00-09:00 AM UTC+8
+- Steps: 
+  - Updated on .101 with regex (r'fail|error|timeout') and CSV export.
+  - SCP: .101 -> .102 -> .104.
+  - Ran sudo python3 ~/log_list_v2.py on .104—terminal output OK, CSV failed initially.
+  - Debugged: Kept os.path.expanduser("Desktop/class/errors.csv"), added debug prints—confirmed 58 rows written.
+  - SCP: errors.csv from .104 -> .102 -> .101.
+- Findings (from errors.csv):
+  1. Mar 16 17:05:16 | /var/log/auth.log | 2025-03-16T16:29:10.857624-07:00 ubuntu dbus-daemon[590]: [system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms)
+  2. Mar 16 17:05:16 | /var/log/boot.log | [DEPEND] Dependency failed for sssd-nss.socket - SSSD NSS Service responder socket
+  3. Mar 16 17:05:16 | /var/log/gpu-manager.log | Error: can’t access /sys/bus/pci/devices/0000:00:02.0/driver
+- Insight: Regex caught diverse errors—SSSD fails could signal auth issues, GPU errors hint at VM config quirks. Ties to AI server monitoring—log triage is key for spotting breaches."
+
+2)
+- Conducted stealth scan form .102 on .101 and created scan_stealth.txt file to log using "nmap -sS -T4 192.168.56.101 > ~/scan_stealth.txt". 
+- Compared scan_stealth.txt to scan_sv.txt (log of .104 nmap scan) and found a slight difference:
+    - scan_stealth for .101 found a timestmap (ignoring because I have set a fixed system time that is different from my local time), "22/tcp open ssh"
+    - scan_sv.txt for .104 found a timestamp (that I ignore because I have set a fixed system time that is different than my local time), "22/tcp open ssh    OpenSSH 9.6p1...."
+Here are copies of the two files:
+scan_stealth.txt - "Starting Nmap 7.95 ( https://nmap.org ) at 2025-03-16 17:51 PDT
+Nmap scan report for 192.168.56.101
+Host is up (0.00030s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 08:00:27:60:32:65 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+
+Nmap done: 1 IP address (1 host up) scanned in 4.66 seconds"
+
+scan_sv.txt - "# Nmap 7.95 scan initiated Fri Mar 14 22:42:00 2025 as: /usr/lib/nmap/nmap --privileged -sV -oN /home/kali/Documents/class/scan_sv.txt 192.168.56.104
+Nmap scan report for 192.168.56.104
+Host is up (0.00026s latency).
+Not shown: 999 filtered tcp ports (no-response)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 9.6p1 Ubuntu 3ubuntu13.8 (Ubuntu Linux; protocol 2.0)
+MAC Address: 08:00:27:B3:CC:52 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Mar 14 22:42:06 2025 -- 1 IP address (1 host up) scanned in 6.20 seconds"
+
+- I have used scp to copy both files from .102 to .101 for easy copy/paste into cyber_notes.txt.
+
+Copy/paste notes from you (Grok3):
+
+"2) Nmap Stealth Scan on .101 vs .104 Service Scan
+- Time: March 17, 2025, 09:00-10:00 AM UTC+8
+- Steps:
+  - Ran nmap -sS -T4 192.168.56.101 > ~/scan_stealth.txt on .102 (Kali)—saved output.
+  - Compared to .104’s scan_sv.txt (Week 1, 03/14, nmap -sV).
+  - SCP’ed both files to .101 for notes.
+- Findings:
+  1. .101 (stealth): 22/tcp open ssh, 4.66s, MAC 08:00:27:60:32:65.
+  2. .104 (service): 22/tcp open ssh OpenSSH 9.6p1 Ubuntu 3ubuntu13.8, 6.20s, MAC 08:00:27:B3:CC:52.
+  3. Difference: -sS (SYN-only) skips version vs -sV (full connect)—stealth faster, quieter.
+- Insight: Both VMs show SSH-only—hardening holds. Stealth scan’s subtle, ideal for AI server recon—less detectable, maps attack surface quick."
+
+3)
+SSH enumeration and brute-force testing on .104 using .102 (Kali)
+- step 1 - Enumerate SSH Version - used "ssh -v 192.168.56.104 2>&1 | grep -i openssh > ~/ssh_enum.txt" in .102.
+created ssh_enum.txt file with OS/SSH info.
+- step 2 - Manual Connection Test
+    - "ssh root@192.168.56.104 >> ~/ssh_enum.txt 2>&1", prior to switching to a blind mindset I tried the known password and permission was denied "Permission denied, please try again" twice. I then switched to an incorrect password and the ssh_enum.txt file was appended showing the first two attempts. The thisrd attempt had "Permission denied (publickey,password)"
+    - "ssh ubuntu@192.168.56.104 -o PasswordAuthentication=yes >> ~/ssh_enum.txt 2>&1" only used fake passwords this time and was not allowed in. The ssh_enum.txt file was appended.
+- step 3 - Hydra Brute-Force Simulation
+    - "hydra -l ubuntu -P /usr/share/wordlists/rockyou.txt ssh://192.168.56.104 -t 4 > ~/hydra_test.txt" first try, couldn't find the rockyou.txt file, so:
+        - "ls -lh /usr/share/wordlists/" - .gz found, unzipped, and first lines confirmed.
+    - ran "hydra -l ubuntu -P /usr/share/wordlists/rockyou.txt ssh://192.168.56.104 -t 4 > ~/hydra_test.txt" again. After waiting awhile, 5 lines:
+        [DATA] attacking ssh://192.168.56.104:22/
+        [STATUS] 84.00 tries/min, 84 tries in 00:01h, 14344315 to do in 2846:06h, 4 active
+        [STATUS] 77.33 tries/min, 232 tries in 00:03h, 14344167 to do in 3091:25h, 4 active
+        [STATUS] 73.14 tries/min, 512 tries in 00:07h, 14343887 to do in 3268:28h, 4 active
+        [STATUS] 72.33 tries/min, 1085 tries in 00:15h, 14343314 to do in 3304.55h, 4 active
+    - ssh'ed into .104, and created auth_log_snip.txt with "sudo tail -n 20 /var/log/auth.log"
+    - while in .104 ssh attempted to scp auth_log_snip.txt to .102, but access to 22 has not, and does not need to be, allowed. exited .104 ssh, and grabbed using scp from .102.
+    - scp'ed ssh_enum.txt, hydra_test.txt, and auth_log_snip.txt from .102 to .101
+Your (Grok3) notes for me to copy/paste:
+"3) SSH Enumeration & Brute-Force Test on .104
+- Time: March 17, 2025, 09:50-11:00 AM UTC+8
+- Steps:
+  - Enumerated SSH: ssh -v 192.168.56.104 2>&1 | grep -i openssh > ~/ssh_enum.txt on .102.
+  - Manual tests: ssh root@192.168.56.104 and ssh ubuntu@192.168.56.104 -o PasswordAuthentication=yes—root blocked, password auth active.
+  - Hydra: hydra -l ubuntu -P /usr/share/wordlists/rockyou.txt ssh://192.168.56.104 -t 4 > ~/hydra_test.txt—fixed missing rockyou.txt.gz, ran 15 min.
+  - Logs: sudo tail -n 20 /var/log/auth.log > ~/auth_log_snip.txt on .104, SCP’d to .102 then .101.
+- Findings:
+  1. ssh_enum.txt: OpenSSH_9.6p1 Ubuntu-3ubuntu13.8, root denied, password prompt for ubuntu.
+  2. hydra_test.txt: 1085 tries in 15 min (~72/min), no success—14.3M left (~137 days).
+  3. auth_log_snip.txt: Failed attempts from .102 (192.168.56.102), max auth limit hit, legit login at 20:09:16.
+- Insight: .104’s password auth is active (unlike .101’s key-only)—strong password resisted Hydra, but it’s still a vuln. Logs caught the attack—key for AI server defense. Recommend hardening: PasswordAuthentication no."
+
+I have not yet hardened .104 to remove password auth because I have had this training on .101 and .104 is a target server. I may harden it later.
+
+-- Wife/Lunch --
+
+4)
+Task: Enum4linux SMB Recon on .104
+- step 1 - Install Enum4linux (if needed)
+    - ran "sudo apt-get update && sudo apt install enum4linux". The latest version is already installed.
+- step 2 - Run the Scan
+    - On Kali, I ran "enum4linux -a 192.168.56.104 > ~/smb_recon.txt".
+    - smb_recon.txt created
+- step 3 - Analyze the Output
+    - "cat smb_recon.txt". Can't find enumerating workgroup/domain. No reply for nbstat. Sessions not allowed using username ",password", agorted remaining tests.
+- step 4 - Move and Log
+    - scp'ed smb_recon.txt from .102 to .101.
+
+A copy/paste of your (Grok3) suggested notes:
+"March 17, 2025, 13:12-14:00 UTC+8 – Enum4linux SMB Recon on .104
+- Setup: On .102 (Kali), confirmed enum4linux v0.9.1 installed (sudo apt install enum4linux—already latest).
+- Ran: enum4linux -a 192.168.56.104 > ~/smb_recon.txt at 13:12 UTC+8.
+- Results: No SMB—“Can’t find workgroup/domain,” “No nbstat reply,” “Server doesn’t allow session with username ‘’, password ‘’,” tests aborted. No NT_STATUS_ACCESS_DENIED, no users listed.
+- Moved: scp ~/smb_recon.txt ubuntu@192.168.56.101:~/
+- Insight: SMB absent on .104 (no Samba, ports 137/139/445 dead per Nmap 03/15). Zero share risk—secure here, but SSH password auth and Flask XSS (03/15) are live targets. For AI servers, this null result rules out SMB leaks—web apps remain the vuln hotspot."
+
+Finished early and conducted related audits:
+a)Nmap Confirm
+From .102 ran "nmap -p 137,139,445 192.168.56.104"
+    - 137/tcp filtered netbios-ns
+    - 139/tcp filtered netbios-ssn
+    - 445/tcp filtered microsoft-ds
+    - Mac Address: 08:00:27:B3:CC:52 (blah, blah, virtualbox virtual NIC)
+    - Nmap done: 1 IP address (1 host up) scanned in 1.67 seconds
+
+b) SSH Audit
+From .102 ran "pip3 install ssh-audit && ssh-audit 192.168.56.104"
+
+Linux no longer has love for pip so I created a flask_env with a simple listner.py app for good measure.
+    - from flask import Flask, request
+      app = Flask(__name__)
+      @app.route('/')
+      def catch(): return f"Got: {request.args.get('data', 'nothing')}"
+      if __name__ == '__main__': app.run(host='0.0.0.0', port=8000)
+
+- installed ssh-audit    
+- ran "ssh audit 192.168.56.104 > ~/audit_report.txt
+- scp'd audit_report.txt from .102 to .101
+
+Now I have an env for pip and a listner.
+
+Here are the copy/paste recommended notes from you (Grok3):
+"March 17, 2025, 14:30-14:45 UTC+8 – SSH Audit on .104
+- Ran: ssh-audit 192.168.56.104 > ~/audit_report.txt on .102, SCP’d to .101.
+- Key Findings: OpenSSH 9.6p1—strong kex (sntrup761x25519), ciphers (chacha20), but NIST curves (ecdh-sha2-nistp*) and SHA-1 MACs (hmac-sha1*) are weak spots.
+- Insight: Password auth + outdated crypto = SSH vuln risk. For AI servers, weak keys could expose training data—harden with ‘PasswordAuthentication no’, drop NIST/SHA-1."
+
+c)
+Is a repeat of a xss vuln excercise from week 1.
+
+5)
+Reflected on my notes, and compared to Grok3 suggested complete rewrite/update. Decided to keep mine.
+While the Grok3 rewrite has nifty mark-up and is a touch more clearly written, it contains minor inaccuracies and some hallucinated data. My notes are accurate and truthful.
+I have included copies of suggested notes from Grok3 throughout this document as they have been offered accurately without hallucination.
+
+6)
+https://tryhackme.com/room/enumerationbruteforce
+
+Used THM Attack Box.
+- step 1 complete (enough), reviewed and understand info about verbose errors used attack box. Attack box/machine functioning too slow for usability.
+    - Moved on to step 2. Will review related material through other sources, although it appears mostly redundant to current training through (Grok3).
+
+STEP 2 - SSH Enumeration on .101 
+
+2.1) .102 (Kali) has the key for .101. Confirmed I was able to access/log info with "ssh -v ubuntu@192.168.56.101 2>&1 | tee ~/ssh_enum_101.txt"
+    - Instead opened .103 (parrot) and ran "ssh -v ubuntu@192.168.56.101 2>&1 | tee ~/ssh_enum_101.txt". From parrot "Permission denied (publickey)" as expected.
+
+2.2) 
+
+a(parrot): Installed netcat-traditional on parrot and ran "nc -v 192.168.56.101 22 2>&1 | tee ~/nc_banner.txt"
+    - parrot nc_banner.txt, but I did not scp it because I want to keep parrot an attacker without specially authed connections. Luckily the results are short and sweet:
+        "192.168.56.101: inverse host lookup failed: Unknown host
+        (UNKNOWN) [192.168.56.101] 22 (ssh) open
+        SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.8"
+
+ b(kali): Ran "nc -v 192.168.56.101 22" and the results were the same as parrot, but I had to ctrl+c to stop.
+    - ran "nc -v 192.168.56.101 22 > ~/nc_banner.txt 2>&1". Results are the the same for both Kali and Parrot. I assume this is because Kali is not connecting directly with the ssh and using the pass-key.
+    - scp'd nc_banner.txt to .101
+
+2.3)
+
+a(parrot): ran "nmap -sV 192.168.56.101 -oN ~/nmap_enum.txt" and got:
+# Nmap 7.49SVN scan initiated Mon Mar 17 17:27:49 2025 as: nmap -sV -oN /home/user/nmapenum.txt 192.168.56.101
+# Nmap done at Mon Mar 17 17:27:53 2025 -- 1 IP address (0 hosts up) scanned in 3.11 seconds
+
+I added -Pn to the command, making it "nmap -sV -Pn 192.168.56.101 -oN ~/nmap_enum.txt" and the nmap information was found/logged in nmap_enum.txt
+    - This information is nearly the same as that found in .102 and scp'd to .101. Just the time taken and addition of -Pn, etc... The info obtaines is the same. 
+
+
+b(kali): ran "nmap -sV 192.168.56.101 -oN ~/nmap_enum.txt" and the output included "22/tcp open ssh OpenSSH 9.6p1 Ubuntu-3ubuntu13.8" as expected. 
+    - scp'd nmap_enum.txt to .101
+
+
+Recommended notes copied from Grok3:
+"March 17, 2025, 15:50-17:50 PM UTC+8 – TryHackMe: Enumeration Basics (Step 2 – SSH Enumeration on .101)
+- Steps:
+  - From .102 (Kali): ssh -v ubuntu@192.168.56.101 2>&1 | tee ~/ssh_enum_101.txt – Logged in with key, SCP’d to .101.
+  - From .103 (Parrot): ssh -v ubuntu@192.168.56.101 2>&1 | tee ~/ssh_enum_101.txt – “Permission denied (publickey)” as expected, no SCP.
+  - Installed netcat-traditional on .103, ran nc -v 192.168.56.101 22 2>&1 | tee ~/nc_banner.txt – Banner: SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.8, kept on .103.
+  - From .102: nc -v 192.168.56.101 22 > ~/nc_banner.txt 2>&1 – Same banner, SCP’d to .101.
+  - From .103: nmap -sV -Pn 192.168.56.101 -oN ~/nmap_enum.txt – 22/tcp open ssh OpenSSH 9.6p1, added -Pn to fix “0 hosts up” issue.
+  - From .102: nmap -sV 192.168.56.101 -oN ~/nmap_enum.txt – Same result, SCP’d to .101.
+- Findings:
+  - ssh_enum_101.txt (.102): Successful key auth—“debug1: Authentication succeeded (publickey)”.
+  - ssh_enum_101.txt (.103): “debug1: Authentications that can continue: publickey” – No password option, key-only confirmed.
+  - nc_banner.txt (.103 & .102): Identical banners—SSH-2.0-OpenSSH_9.6p1 Ubuntu-3ubuntu13.8.
+  - nmap_enum.txt (.103 & .102): 22/tcp open, OpenSSH 9.6p1—consistent across authorized (.102) and attacker (.103) views.
+- Insight: .101’s SSH is key-only (hardened 03/15)—secure against password attacks. Parrot (.103) as attacker saw same banner but no entry, mimicking real recon. For AI servers, this shows enumeration reveals config strength—key auth blocks brute-force, unlike .104’s password vuln (03/17). Ties to CEH: Know your attack surface."
+
+Grok3 provided wise insight and suggested I add it, so here it is “Parrot’s blind recon proves .101’s hardening—attackers see the door but can’t knock it down.”
+
+
+3/18
+
+For todays task Grok3 came up with a small amalgamation of previously completed tasks.
+There is nothing new to learn. And I am not not going to go through the steps of practicing skills that are already second nature.
+The task was to update log_list_v2.py with updates that were already completed. Then to scp and and move it between VMs, create an error.csv and log the results.
+Nothing new, moving on.
+
+From you (Grok3):
+"March 18, 2025, 07:00-07:15 AM UTC+8 – Python: Filter .101 Logs (Skipped)
+- Plan: SCP log_list_v2.py from .104 to .101, run sudo python3, filter timeouts, log to errors.csv.
+- Action: Reviewed—task redundant with Week 1 (03/15, log_list_v1.py) and Week 2 (03/17, v2 CSV export).
+- Evidence:
+  - 03/15: Built log parser, filtered ‘error’/‘fail’, logged timeouts (e.g., org.bluez).
+  - 03/17: Added ‘timeout’ to regex, exported 58 rows to errors.csv, SCP’d across .101/.102/.104.
+- Insight: File moves, regex, and CSV output are mastered—nothing new here. For AI security, log triage is solid; focus shifts to fresh skills (e.g., 03/19 IPTables). CEH prep unaffected—recon basics covered."
+
+3/19
+
+In kali I ssh'd into .104 and ran "sudo iptables -A INPUT -p tcp --dport 22 -m limit --limit 5/min -j ACCEPT". 
+I then logged into parrot, not ssh'd, because I had to start the machine anyways and ran"for i in {1..10}; do ssh ubuntu@192.168.56.104 "echo Attempt $i" & sleep 1; done" from parrot.
+I then ssh'd into .104 from parrot and created ssh_limit_test.txt from the tail of the auth log "sudo tail -n 20 /var/log/syslog > ssh_limit_test.txt". The task instructions told me to scp the file to .101, but .102 has the only access to .101 because of the key. So in .102 I ran "scp ubuntu@192.168.56.104:~/ssh_limit_test.text ubuntu@192.168.56.101:~/Documents/16WeekUpskill/Notes/from/kali/ssh_limit_test.txt" 
+Notes updated, done.
+
+3/20
+
+X: AI Model Poisoning Research
+- Searched X for “AI model poisoning 2025”:
+  1. @SecAIExpert: Federated learning hit by a malicious node—skewed weights cut model accuracy by 15%. Supply chain vuln exposed.
+  2. @DataSentryX: Poisoned GAN made fake malware samples, tricked AV model into whitelisting real threats. Synthetic data’s a new attack surface.
+- Insight: Poisoning’s evolving—federated systems and synthetic data are hot targets. Like QA testing, I’d need to validate every data source and node. 
+CEH prep: If it will align with the current full plan I should recon these vectors, simulate defenses next week. I also need to focus on the AI dev side
+of studies, to more fully understand what's going on with model training/inference as well as those nifty APIs.
+
+- Reviewed current 16 week plan with you (Grok3) to evaluate current progress. Identified implementation of online resources that can assist in optimizing potential
+outcome. Here are the notes you generated:
+"March 20, 2025, 7:00-8:00 AM UTC+8 – X: AI Model Poisoning Research + AI Dev & Git Kickoff
+- Searched X for “AI model poisoning 2025”:
+  1. @SecAIExpert: Malicious node in federated learning skewed weights, cut accuracy 15%—supply chain vuln.
+  2. @DataSentryX: Poisoned GAN fed fake malware samples, tricked AV into whitelisting threats—synthetic data risk.
+- Resources: huntr.com intros flag ML file vulns (e.g., .pt deserialization); DeepLearning.AI for AI dev (training/inference); Git for version control/portfolio.
+- Insight: Poisoning hits federated and synthetic data—15% accuracy drops could tank AI trust. huntr.com links to ML code flaws; DeepLearning.AI unpacks models; Git tracks my work. CEH prep: Simulate poisoning Week 3 (scikit-learn). AI dev: Start DeepLearning.AI “AI for Everyone” Week 4. Git: Init repo Week 3, push scripts/notes."
+
+- Created updated plan for remaining program to further optimize the outcome.
+
+
+3/20
+

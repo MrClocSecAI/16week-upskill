@@ -1,0 +1,66 @@
+Great work wrapping up Friday, March 14, 2025! It’s 8:00 AM UTC+8 (00:00 UTC Saturday), and you’ve nailed your 7:00-8:00 AM task right on time. Your `cyber_notes.txt` update ties NIST firewall theory to your Ubuntu_Target setup perfectly, keeping the refresher vibe strong. Let’s break it down, polish a typo or two, and gear you up for tomorrow’s 12-hour Saturday push—you’re crushing Week 1!
+
+---
+
+### Review of Your Friday, March 14 Output
+
+#### `cyber_notes.txt` Update
+- *Your Text*:
+  ```
+  03/14
+  1) Read "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-41r1.pdf" - Stateless packet filters are vulnerable to IP Spoofing. A UTM can simplify security management but may strain resources and provide a less than complete solution that is not able to acheive all of its objectives.
+  2) Ran "sudo ufe status" on Ubuntu_Traget. The firewall is still set to allow anywhere for 22 and 22 (v6).
+  ```
+- *Feedback*:
+  - **NIST Takeaways**: You hit the mark with two solid points from SP 800-41r1:
+    - *“Stateless packet filters are vulnerable to IP spoofing”*: Spot-on—Section 2 covers this (stateless vs. stateful firewalls). Your A+ knowledge likely made this a quick connect, and it’s super relevant for Saturday’s Nmap scans (spoofing’s a pentesting trick!).
+    - *“A UTM can simplify security management but may strain resources…”*: Great pull from Section 3-ish (Unified Threat Management). “Acheive” is a typo (should be “achieve”), but the insight’s gold—UTM’s trade-offs are real-world stuff. Nice depth for a refresher!
+  - **UFW Check**: 
+    - You ran “sudo ufe status” (typo—meant `sudo ufw status`) on “Ubuntu_Traget” (typo—`.104`, Ubuntu_Target). I’ll assume it worked despite the slips, and “22 ALLOW Anywhere, 22 (v6) ALLOW Anywhere (v6)” matches Monday’s setup. Continuity confirmed—SSH is still open, as expected.
+    - *Suggestion*: Next time, copy/paste the exact output (e.g., “22 ALLOW Anywhere”) to save typing grief, but this works!
+  - **Format**: The “1)” and “2)” split is clean—matches the task’s “2 takeaways + UFW” ask. The trailing “-” feels like a cut-off; if you meant more, add it tomorrow!
+
+#### Task Completion
+- You aced the 7:00-8:00 AM UTC+8 slot: read NIST (~30 min), checked UFW (~15 min), documented (~15 min), and posted by 8:00 AM UTC+8 (00:00 UTC). Output aligns—`cyber_notes.txt` updated on Ubuntu_AI (`.101`), reflecting Ubuntu_Target (`.104`). Your A+ and prior skills kept this smooth, and Week 1’s at 7/19 hours (3 Mon + 4 Tue-Fri + 0 Sat).
+
+---
+
+### Saturday, March 15 Plan (7:00 AM-9:00 PM UTC+8, 12 Hours)
+It’s Friday evening UTC+8 (~7:00 PM?), so let’s prep your hardcore study day. Original plan: 12 hours across Python, Nmap, Flask, and injection testing. Your Flask/MoE background and A+ cert mean we can lean into that—here’s the streamlined rundown:
+
+#### Schedule (7:00 AM-9:00 PM UTC+8 = 23:00 UTC Sat - 13:00 UTC Sun)
+- **7:00-8:00 AM**: FreeCodeCamp Python (1:00-1:30, functions) on Ubuntu_AI - Add `def list_logs():` to `log_checker.py`, test, note in `cyber_notes.txt`.
+- **8:00-9:00 AM**: Copy `log_checker.py` to Ubuntu_Target (`scp`), run, compare outputs in `cyber_notes.txt`.
+- **9:00-10:00 AM**: Add `try/except` to `log_checker.py`, save as `log_list_v1.py` on Ubuntu_AI, test.
+- **10:00-11:00 AM**: Kali - `nmap -sP 192.168.56.104` (Ubuntu_Target), save to `~/scan.txt`, note live host.
+- **11:00 AM-12:00 PM**: Kali - `nmap -sV 192.168.56.104`, append to `scan.txt`, note services (e.g., SSH).
+- **1:00-2:00 PM**: Ubuntu_Target - `sudo iptables -A INPUT -p tcp --dport 80 -j DROP`, test with `curl 192.168.56.104:80` from Parrot (`.103`), verify block.
+- **2:00-3:00 PM**: Ubuntu_Target - `sudo iptables -L` in `cyber_notes.txt`, note AI protection angle.
+- **3:00-4:00 PM**: EC-Council “ChatGPT for Ethical Hacking” intro ([https://www.eccouncil.org/free-cyber-ai-courses/](https://www.eccouncil.org/free-cyber-ai-courses/)), 2 AI risks in `cyber_notes.txt`.
+- **4:00-5:00 PM**: Ubuntu_AI - Install Flask (`pip3 install flask`), create `~/app.py` (basic “Hello” endpoint), run.
+- **5:00-6:00 PM**: Copy `app.py` to Ubuntu_Target (`scp`), run, test from Parrot (`curl "http://192.168.56.104:5000"`), note response.
+- **7:00-8:00 PM**: Parrot - Test injection (`curl "http://192.168.56.104:5000?input=<script>"`), note vuln in `cyber_notes.txt`.
+- **8:00-9:00 PM**: Review all outputs (`cyber_notes.txt`, `log_list_v1.py`, `scan.txt`), list 3 lessons (e.g., “Nmap finds services”).
+- **Breaks**: 12:00-1:00 PM (lunch), 6:00-7:00 PM (dinner)—10 hours core, 2 hours flex.
+
+#### Output
+- `log_list_v1.py`, `app.py`, `scan.txt`, updated `cyber_notes.txt`—Week 1 hits 19/19 hours.
+
+#### Notes
+- **Flask Tie-In**: Your MoE assistant experience (orchestrating with Flask) shines at 4:00 PM—basic endpoint today, security depth later.
+- **Flex Time**: Use breaks or extra 2 hours to polish notes/scripts if needed.
+
+---
+
+### Next Steps (UTC+8)
+- **Saturday, 7:00 AM**: Kick off—post snippets here as you go or by 9:00 PM UTC+8 (~13:00 UTC Sun).
+- **Sunday**: Off—rest up!
+- **Week 2**: Starts Monday, 7:00 AM—X reviews begin.
+
+---
+
+### Quick Q&A
+- **MoE Details**: What’d your Flask AI handle (text, images, both)? I’ll weave it into Saturday’s Flask task if you share!
+- **Pace**: Friday good? Saturday too much? We can trim if needed.
+
+You’re a beast—hit Saturday hard, and I’ll catch your output tomorrow! :-D
