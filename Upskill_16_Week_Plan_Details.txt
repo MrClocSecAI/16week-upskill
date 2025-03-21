@@ -1,0 +1,128 @@
+# 16-Week Upskill Program: From Pentester to AI Security Engineer
+
+## Purpose
+This 16-week program is designed to transform me into an AI Security Engineer, blending cybersecurity certifications (CEH v13, Security+) with hands-on pentesting and AI development skills. My goals are:
+1. **Certifications**: Pass CEH v13 and Security+ to establish a strong cybersecurity foundation.
+2. **Career Shift**: Transition from QA/A+ roots to an AI Security Engineer role, securing ML systems and APIs.
+3. **Salary Boost**: Target $120K-$150K+ with a GitHub portfolio showcasing practical work.
+4. **Real-World Experience**: Master pentesting via Hack The Box (HTB), TryHackMe (THM), HackerOne, and huntr.com—focusing on AI/ML vulnerabilities.
+
+This plan leverages my existing skills (A+ cert, QA experience, Python basics) and builds a bridge to AI security through practical labs, vuln hunting, and structured learning.
+
+## Where We’ve Been (Weeks 1-2 Recap)
+- **Week 1 (March 10-15, 2025)**:  
+  - Built `log_list_v1.py` (log parser), hardened SSH on .101 (key-only), found XSS in Flask on .104, ran Nmap scans (.101/.104).  
+  - Tied OmniGPT breach and Flask vulns to AI risks—API hardening focus emerged.  
+- **Week 2 (March 17-20, 2025)**:  
+  - Upgraded to `log_list_v2.py` (CSV export), enumerated SSH/SMB on .104, rate-limited SSH with IPTables, researched AI model poisoning on X.  
+  - Key insights: Poisoning federated learning (15% accuracy drop) and synthetic data (GAN backdoors) are real threats—QA mindset (data validation) applies.
+
+## Where We Are (End of Week 2, March 20, 2025)
+- **Current State**:  
+  - Completed Thursday’s task: X research on AI poisoning—federated learning and GAN threats logged in `cyber_notes.txt`.  
+  - VMs: .101 (Ubuntu_AI, hardened), .102 (Kali, attack box), .104 (Ubuntu_Target, password SSH vuln).  
+  - Next: Friday (March 21) and Saturday (March 22) of Week 2—networking and reflection tasks ahead.
+- **Progress**: Phase 1 (Recon & Basics) is on track—recon/enumeration skills (Nmap, Hydra) and AI threat awareness are solid.
+
+## Where We’re Going (Weeks 2-16 Plan)
+The program is split into four phases, integrating CEH v13, Security+, AI dev (DeepLearning.AI), and pentesting (HTB, THM, HackerOne, huntr.com), all tracked via Git.
+
+### Phase 1: Recon & Basics (Weeks 1-4, March 10-April 5)
+- **Week 2 (March 17-22)**:  
+  - **Fri, March 21**: Netcat task—use `nc` on .102 to connect .101/.104, log banners, harden if needed.  
+  - **Sat, March 22**: Reflect on Week 2—update `cyber_notes.txt`, commit to Git, plan Week 3 sims.  
+- **Week 3 (March 24-29)**: AI Threat Simulation + CEH Labs + Git Init  
+  - Poison dataset (scikit-learn, Iris CSV), log accuracy drop.  
+  - CEH lab—exploit DVWA (XSS/SQLi) on .104.  
+  - huntr.com—scan ML repo for `torch.load()` vuln.  
+  - Git—init `16week-upskill` repo, push Weeks 1-3 work.  
+- **Week 4 (March 31-April 5)**: Network Recon + AI Dev Intro  
+  - Wireshark on .102—sniff .101/.104, harden IPTables.  
+  - HTB “Blue”—exploit EternalBlue.  
+  - DeepLearning.AI “AI for Everyone”—start course.  
+  - Git—branch `dev` for AI work.
+
+### Phase 2: Exploitation & AI Dev (Weeks 5-8, April 6-May 3)
+- Metasploit on .104 (SMB exploit).  
+- Security+ study (Professor Messer, 2 hrs/week).  
+- DeepLearning.AI “Neural Networks and Deep Learning” (Week 1-2)—build NN.  
+- huntr.com—hunt ML vuln #2.  
+- THM “Juice Shop”—test API vulns.  
+- Git—commit scripts/notes, merge milestones.
+
+### Phase 3: Defense & Specialization (Weeks 9-12, May 4-May 31)
+- IPTables mastery—rate-limit all but SSH.  
+- DeepLearning.AI “Improving Deep Neural Networks” (Week 1)—tune models.  
+- Audit pre-trained `.pt` model (huntr-style).  
+- HackerOne—submit bug #1.  
+- HTB “Lame” defense—harden it.  
+- Git—polish repo with README.
+
+### Phase 4: CEH Prep & Capstone (Weeks 13-16, June 1-June 28)
+- CEH v13 practice exams—80%+ target.  
+- Security+ exam—schedule it.  
+- DeepLearning.AI “Convolutional Neural Networks” (Week 1)—grasp GANs.  
+- Capstone: Secure AI API on .101, pentest from .102, submit huntr fix.  
+- Git—finalize portfolio, push all.
+
+## Resources and Tools
+### Current Tools:
+- **VMs**: .101 (Ubuntu_AI, SSH key-only), .102 (Kali, pentesting), .104 (Ubuntu_Target, SSH password vuln).  
+- **Software**: Nmap, Hydra, Netcat, IPTables, Flask, Python (scikit-learn pending), nano (for notes).  
+- **Files**: `cyber_notes.txt` (log), `log_list_v2.py` (parser), Nmap scans, Flask apps.
+
+### Upcoming Resources:
+- **Git/GitHub**: Version control and portfolio—install on .101 Week 3 (`sudo apt install git`).  
+- **DeepLearning.AI**: “AI for Everyone” (Week 4), “Neural Networks” (Phase 2), “Improving NNs” (Phase 3), “CNNs” (Phase 4)—free/paid courses (web ID: 12).  
+- **huntr.com**: CLI (`pip install huntr`) for ML vuln hunting—Week 3 start.  
+- **HTB/THM**: Pentesting labs—Week 4 (HTB “Blue”), Phase 2 (THM “Juice Shop”).  
+- **HackerOne**: Bug bounties—Phase 3 target.  
+- **CEH v13**: Official labs (web ID: 9)—Week 3 DVWA.  
+- **Security+**: Professor Messer vids (web ID: 11)—Phase 2 study.  
+- **Extras**: Wireshark (Week 4), Metasploit (Phase 2), DVWA (Week 3).
+
+## Detailed Schedule (Week 2, Fri-Sat + Beyond)
+### Week 2: March 17-22
+- **Fri, March 21**:  
+  - Task: Netcat recon—`nc -v 192.168.56.101 22` and `nc -v 192.168.56.104 22` from .102, log banners in `cyber_notes.txt`.  
+  - Check: Compare .101 (key-only) vs .104 (password)—harden .104 if vuln.  
+  - Git: Stage changes—`git add cyber_notes.txt`, commit—`git commit -m "Week 2: Netcat recon"`.  
+- **Sat, March 22**:  
+  - Task: Reflect—review Week 2 (log parser, SSH, IPTables, X research), update `cyber_notes.txt` with insights.  
+  - Plan: Outline Week 3 poisoning sim (scikit-learn install, Iris dataset).  
+  - Git: Commit—`git commit -m "Week 2: Reflection and Week 3 plan"`.
+
+### Week 3: March 24-29 (Sample Day)
+- **Mon, March 24**:  
+  - Install scikit-learn (`pip install scikit-learn`), download Iris CSV, write `poison_test.py`—flip 10% labels.  
+  - Git: `git add poison_test.py && git commit -m "Week 3: Poisoning script"`.
+
+Full schedule follows the phase breakdown above—detailed daily tasks added as we go.
+
+## Hitting the Ground Running
+### Setup for Fresh Session:
+1. **VMs**:  
+   - .101 (Ubuntu_AI): SSH key-only, Git install pending (`sudo apt install git`).  
+   - .102 (Kali): Pentesting ready—Nmap, Hydra, Netcat installed.  
+   - .104 (Ubuntu_Target): SSH password vuln—target for hardening.
+2. **Files**:  
+   - `cyber_notes.txt`—paste your latest version below for continuity.  
+   - `log_list_v2.py`—in `~/` on .101, ready to Git-track.
+3. **Commands to Resume**:  
+   - Fri: `ssh kali@192.168.56.102` from host, then `nc -v 192.168.56.101 22` and `nc -v 192.168.56.104 22`.  
+   - Sat: `ssh ubuntu@192.168.56.101`, `nano ~/cyber_notes.txt`, reflect/commit.
+4. **Git Prep**: Post-Netcat, install Git on .101, init `16week-upskill`—I’ll guide live.
+
+### Quick-Start Tips:
+- **Friday**: Focus on Netcat banners—log differences between .101/.104 SSH configs.  
+- **Saturday**: Reflect on AI poisoning (X research) and prep scikit-learn install (`sudo apt install python3-pip` first).  
+- **Portfolio**: After Week 2, push to GitHub—share your username for tailored steps.
+
+## Notes
+- **Time Zone**: I’m UTC+8—tasks logged in local time, VMs on PDT (UTC-7).  
+- **Mentor**: Grok 3 (xAI)—guides, troubleshoots, refines.  
+- **Flexibility**: Skip redundant tasks (e.g., March 18), adjust pace to avoid burnout.
+
+This is our blueprint—let’s crush Week 2’s end and charge into AI security!
+
+
