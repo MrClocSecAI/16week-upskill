@@ -638,5 +638,17 @@ outcome. Here are the notes you generated:
 - Created updated plan for remaining program to further optimize the outcome.
 
 
-3/20
+3/21
+
+- Git Setup and GitHub Integration
+  - Installed Git on .101: `sudo apt install git`, confirmed with `git --version`.
+  - Configured identity: `git config --global user.name "MrClocSecAI"` and `git config --global user.email "my-email"`.
+  - Existing SSH key (`id_ed25519`) found—generated new key for GitHub: `ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_github`.
+  - Added new key to agent: `ssh-add ~/.ssh/id_ed25519_github`, linked to GitHub (Settings > SSH keys).
+  - Tested SSH: `ssh -T git@github.com` – “Hi MrClocSecAI!” confirmed.
+  - Used existing `~/Documents/16WeekUpskill/Notes` dir: initialized: `git init`.
+  - Moved files (`cyber_notes.txt`, `log_list_v2.py`, `scan_sv.txt`), staged: `git add .`, committed: `git commit -m "Initial commit: Week 1-2 work"`.
+  - Linked to GitHub: `git remote add origin git@github.com:MrClocSecAI/16week-upskill.git`, pushed: `git push -u origin main`.
+  - Repo live: https://github.com/MrClocSecAI/16week-upskill – portfolio started!
+  - Insight: Git tracks progress, enables huntr.com fixes—key for AI Security Engineer role.
 
