@@ -661,6 +661,28 @@ March 21, 2025, 7:00-8:00 AM UTC+8 – Netcat Recon
  (UNKNOWN) [192.168.56.*] 22 (ssh) open"
 Both .101 and .104 run OpenSSH 9.6p1—port 22 open, no DNS resolution (lab norm). .101 secure with key-only, .104 vuln to password attacks (e.g., Hydra). CEH recon skill—banner grabbing and port status confirmed.
 
+03/21 (additional/early)
+
+- Week 2 Reflection:
+  - Tasks: Upgraded log parser to v2 (CSV export), SSH/SMB enum on .104, IPTables rate-limiting, X poisoning research, Netcat recon, Git setup.
+  - Wins: Git live at https://github.com/MrClocSecAI/16week-upskill—portfolio started. Recon skills (Nmap, Hydra, Netcat) sharp. Poisoning insights tie QA to AI security.
+  - Plan: Week 3—poison Iris dataset (scikit-learn), DVWA exploits on .104, huntr vuln scan.
+- scikit-learn Prep:
+  - Ubuntu blocks direct pip—I previously installed `python3-venv` (`sudo apt install python3-venv`), so I created `~/Documents/16week-upskill/Notes/sklearn_env`.
+  - Activated: `source sklearn_env/bin/activate`, installed `scikit-learn` (`pip install scikit-learn`), verified with `python -c "import sklearn; print(sklearn.__version__)"`.
+  - Insight: Virtual env keeps system clean—ready for Iris poisoning sim in Week 3.
+
+03/22
+
+
+
+
+
+
+
+
+
+
 
 
 
