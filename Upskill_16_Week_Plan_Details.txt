@@ -13,29 +13,29 @@ This plan leverages my existing skills (A+ cert, QA experience, Python basics) a
 - **Week 1 (March 10-15, 2025)**:  
   - Built `log_list_v1.py` (log parser), hardened SSH on .101 (key-only), found XSS in Flask on .104, ran Nmap scans (.101/.104).  
   - Tied OmniGPT breach and Flask vulns to AI risks—API hardening focus emerged.  
-- **Week 2 (March 17-20, 2025)**:  
-  - Upgraded to `log_list_v2.py` (CSV export), enumerated SSH/SMB on .104, rate-limited SSH with IPTables, researched AI model poisoning on X.  
-  - Key insights: Poisoning federated learning (15% accuracy drop) and synthetic data (GAN backdoors) are real threats—QA mindset (data validation) applies.
+- **Week 2 (March 17-21, 2025)**:  
+  - Upgraded to `log_list_v2.py` (CSV export), enumerated SSH/SMB on .104, rate-limited SSH with IPTables, researched AI poisoning on X, ran Netcat recon (.101/.104), set up Git/GitHub.  
+  - Key insights: Poisoning federated learning (15% accuracy drop) and synthetic data (GAN backdoors) are real threats—QA mindset (data validation) applies; Git tracks progress for portfolio.
 
-## Where We Are (End of Week 2, March 20, 2025)
+## Where We Are (End of Week 2, March 21, 2025)
 - **Current State**:  
-  - Completed Thursday’s task: X research on AI poisoning—federated learning and GAN threats logged in `cyber_notes.txt`.  
-  - VMs: .101 (Ubuntu_AI, hardened), .102 (Kali, attack box), .104 (Ubuntu_Target, password SSH vuln).  
-  - Next: Friday (March 21) and Saturday (March 22) of Week 2—networking and reflection tasks ahead.
-- **Progress**: Phase 1 (Recon & Basics) is on track—recon/enumeration skills (Nmap, Hydra) and AI threat awareness are solid.
+  - Completed Friday’s tasks: Netcat recon on .101/.104 (banners logged), Git installed on .101, `16week-upskill` repo live at https://github.com/MrClocSecAI/16week-upskill.  
+  - VMs: .101 (Ubuntu_AI, key-only SSH), .102 (Kali, attack box), .104 (Ubuntu_Target, password SSH vuln).  
+  - Next: Saturday (March 22)—reflect on Week 2, plan Week 3 poisoning sim (scikit-learn).  
+- **Progress**: Phase 1 (Recon & Basics) on track—recon/enumeration skills (Nmap, Hydra, Netcat) and AI threat awareness solid, Git portfolio started.
 
 ## Where We’re Going (Weeks 2-16 Plan)
 The program is split into four phases, integrating CEH v13, Security+, AI dev (DeepLearning.AI), and pentesting (HTB, THM, HackerOne, huntr.com), all tracked via Git.
 
 ### Phase 1: Recon & Basics (Weeks 1-4, March 10-April 5)
 - **Week 2 (March 17-22)**:  
-  - **Fri, March 21**: Netcat task—use `nc` on .102 to connect .101/.104, log banners, harden if needed.  
-  - **Sat, March 22**: Reflect on Week 2—update `cyber_notes.txt`, commit to Git, plan Week 3 sims.  
-- **Week 3 (March 24-29)**: AI Threat Simulation + CEH Labs + Git Init  
-  - Poison dataset (scikit-learn, Iris CSV), log accuracy drop.  
+  - **Fri, March 21**: Netcat recon—`nc -v` on .102 for .101/.104, logged banners in `cyber_notes.txt`, Git setup completed.  
+  - **Sat, March 22**: Reflect on Week 2—update `cyber_notes.txt`, commit to Git, plan Week 3 sims (scikit-learn install).  
+- **Week 3 (March 24-29)**: AI Threat Simulation + CEH Labs  
+  - Poison dataset (scikit-learn, Iris CSV), log accuracy drop in `poison_test.py`.  
   - CEH lab—exploit DVWA (XSS/SQLi) on .104.  
   - huntr.com—scan ML repo for `torch.load()` vuln.  
-  - Git—init `16week-upskill` repo, push Weeks 1-3 work.  
+  - Git—push Weeks 1-3 work, refine repo structure.  
 - **Week 4 (March 31-April 5)**: Network Recon + AI Dev Intro  
   - Wireshark on .102—sniff .101/.104, harden IPTables.  
   - HTB “Blue”—exploit EternalBlue.  
@@ -68,61 +68,99 @@ The program is split into four phases, integrating CEH v13, Security+, AI dev (D
 ## Resources and Tools
 ### Current Tools:
 - **VMs**: .101 (Ubuntu_AI, SSH key-only), .102 (Kali, pentesting), .104 (Ubuntu_Target, SSH password vuln).  
-- **Software**: Nmap, Hydra, Netcat, IPTables, Flask, Python (scikit-learn pending), nano (for notes).  
-- **Files**: `cyber_notes.txt` (log), `log_list_v2.py` (parser), Nmap scans, Flask apps.
+- **Software**: Nmap, Hydra, Netcat, IPTables, Flask, Python (scikit-learn pending), Git, nano.  
+- **Files**: `cyber_notes.txt` (log), `log_list_v2.py` (parser), `scan_sv.txt`, `scan_stealth.txt`, Flask apps.
 
 ### Upcoming Resources:
-- **Git/GitHub**: Version control and portfolio—install on .101 Week 3 (`sudo apt install git`).  
+- **Git/GitHub**: Live at https://github.com/MrClocSecAI/16week-upskill—portfolio tracking active.  
 - **DeepLearning.AI**: “AI for Everyone” (Week 4), “Neural Networks” (Phase 2), “Improving NNs” (Phase 3), “CNNs” (Phase 4)—free/paid courses (web ID: 12).  
 - **huntr.com**: CLI (`pip install huntr`) for ML vuln hunting—Week 3 start.  
 - **HTB/THM**: Pentesting labs—Week 4 (HTB “Blue”), Phase 2 (THM “Juice Shop”).  
 - **HackerOne**: Bug bounties—Phase 3 target.  
 - **CEH v13**: Official labs (web ID: 9)—Week 3 DVWA.  
 - **Security+**: Professor Messer vids (web ID: 11)—Phase 2 study.  
-- **Extras**: Wireshark (Week 4), Metasploit (Phase 2), DVWA (Week 3).
+- **Extras**: Wireshark (Week 4), Metasploit (Phase 2), DVWA (Week 3), scikit-learn (Week 3).
 
 ## Detailed Schedule (Week 2, Fri-Sat + Beyond)
 ### Week 2: March 17-22
 - **Fri, March 21**:  
-  - Task: Netcat recon—`nc -v 192.168.56.101 22` and `nc -v 192.168.56.104 22` from .102, log banners in `cyber_notes.txt`.  
-  - Check: Compare .101 (key-only) vs .104 (password)—harden .104 if vuln.  
-  - Git: Stage changes—`git add cyber_notes.txt`, commit—`git commit -m "Week 2: Netcat recon"`.  
+  - Task: Netcat recon—`nc -v 192.168.56.101 22` and `nc -v 192.168.56.104 22` from .102, logged banners in `cyber_notes.txt`.  
+  - Git: Installed on .101, initialized `16week-upskill`, pushed to GitHub—`git push -u origin main`.  
 - **Sat, March 22**:  
-  - Task: Reflect—review Week 2 (log parser, SSH, IPTables, X research), update `cyber_notes.txt` with insights.  
-  - Plan: Outline Week 3 poisoning sim (scikit-learn install, Iris dataset).  
+  - Task: Reflect—review Week 2 (log parser, SSH/SMB enum, IPTables, X research, Netcat, Git), update `cyber_notes.txt`.  
+  - Plan: Prep Week 3—install scikit-learn (`sudo apt install python3-pip && pip3 install scikit-learn`), outline poisoning sim.  
   - Git: Commit—`git commit -m "Week 2: Reflection and Week 3 plan"`.
 
 ### Week 3: March 24-29 (Sample Day)
 - **Mon, March 24**:  
-  - Install scikit-learn (`pip install scikit-learn`), download Iris CSV, write `poison_test.py`—flip 10% labels.  
+  - Install scikit-learn, download Iris CSV, write `poison_test.py`—flip 10% labels.  
   - Git: `git add poison_test.py && git commit -m "Week 3: Poisoning script"`.
 
-Full schedule follows the phase breakdown above—detailed daily tasks added as we go.
+Full schedule follows the phase breakdown—detailed tasks added as we go.
 
 ## Hitting the Ground Running
 ### Setup for Fresh Session:
 1. **VMs**:  
-   - .101 (Ubuntu_AI): SSH key-only, Git install pending (`sudo apt install git`).  
+   - .101 (Ubuntu_AI): SSH key-only, Git installed, repo at `~/16week-upskill`.  
    - .102 (Kali): Pentesting ready—Nmap, Hydra, Netcat installed.  
-   - .104 (Ubuntu_Target): SSH password vuln—target for hardening.
+   - .104 (Ubuntu_Target): SSH password vuln—target for hardening.  
 2. **Files**:  
-   - `cyber_notes.txt`—paste your latest version below for continuity.  
-   - `log_list_v2.py`—in `~/` on .101, ready to Git-track.
+   - `cyber_notes.txt`—updated below with Week 2 progress.  
+   - `log_list_v2.py`, `scan_sv.txt`, `scan_stealth.txt`—in `~/16week-upskill` on .101.  
 3. **Commands to Resume**:  
-   - Fri: `ssh kali@192.168.56.102` from host, then `nc -v 192.168.56.101 22` and `nc -v 192.168.56.104 22`.  
-   - Sat: `ssh ubuntu@192.168.56.101`, `nano ~/cyber_notes.txt`, reflect/commit.
-4. **Git Prep**: Post-Netcat, install Git on .101, init `16week-upskill`—I’ll guide live.
+   - Sat: `ssh ubuntu@192.168.56.101`, `cd ~/16week-upskill`, `nano cyber_notes.txt`, reflect/commit.  
+4. **Git**: Repo live—`git pull` to sync, `git push` to update.
 
 ### Quick-Start Tips:
-- **Friday**: Focus on Netcat banners—log differences between .101/.104 SSH configs.  
-- **Saturday**: Reflect on AI poisoning (X research) and prep scikit-learn install (`sudo apt install python3-pip` first).  
-- **Portfolio**: After Week 2, push to GitHub—share your username for tailored steps.
+- **Saturday**: Reflect on Week 2 wins (Git, Netcat), prep scikit-learn—commit early.  
+- **Portfolio**: Repo at https://github.com/MrClocSecAI/16week-upskill—keep pushing notes/scripts.
 
 ## Notes
-- **Time Zone**: I’m UTC+8—tasks logged in local time, VMs on PDT (UTC-7).  
+- **Time Zone**: I’m UTC+8—VMs on PDT (UTC-7).  
 - **Mentor**: Grok 3 (xAI)—guides, troubleshoots, refines.  
 - **Flexibility**: Skip redundant tasks (e.g., March 18), adjust pace to avoid burnout.
 
+## Cyber Notes (Updated through March 21, 2025)
+- Week 1 (March 10-15):
+  - OmniGPT breach tied to AI risks—APIs vuln to exploits, need hardening.
+  - NIST terms: Identify, Detect, Protect, Respond, Recover, Govern.
+  - UFW on .104: 22 ALLOW Anywhere—baseline set.
+  - Python cipher course (freeCodeCamp)—58 steps done.
+  - `log_list_v1.py` built—parsed errors (e.g., libgpg-error0 in /var/log/bootstrap.log).
+  - Networking refresher (YouTube)—ARPANET roots, A+ skills sharp.
+  - Kali `ip a`: eth1 192.168.56.102—lab network mapped.
+  - NIST SP 800-41r1: Stateless filters vuln to IP spoofing, UTM resource strain noted.
+  - SSH troubleshoot—installed/enabled on .104, copied `log_list_v1.py` to ~/Desktop/class/, ran it.
+  - Nmap on .104: 22/tcp open, MAC 08:00:27:B3:CC:52—target live.
+  - Hardened .101 SSH: `PasswordAuthentication no`, key from .102—secure baseline.
+  - IPTables on .104: ACCEPT tcp dpt:22—firewall logged.
+  - Nmap -sV -sC -O on .104: OpenSSH 9.6p1, Linux 5.15-6.0—full recon.
+  - Hardened .104: `iptables -A INPUT -p tcp --dport 80 -j DROP`—HTTP blocked.
+  - Flask on .101: Port 5000 test, “Hello” worked, closed—secure.
+  - Flask on .104: XSS vuln (<script>alert('hacked')</script>) confirmed—AI API risk noted.
+
+- Week 2 (March 17-21):
+  - Upgraded `log_list_v1.py` to `log_list_v2.py`—added CSV export (errors.csv), regex (fail|error|timeout), debugged path on .104, SCP’d across .101/.102/.104.
+  - Nmap stealth scan on .101: 22/tcp open ssh—faster/quieter than .104’s -sV (OpenSSH 9.6p1).
+  - SSH enum on .104: OpenSSH 9.6p1, root blocked, password auth active—Hydra ran 1085 tries (~72/min), no success.
+  - SMB recon on .104: Enum4linux null—no Samba, ports 137/139/445 dead.
+  - SSH audit on .104: Strong kex (sntrup761x25519), weak NIST curves/SHA-1—harden recommended.
+  - IPTables on .104: `iptables -A INPUT -p tcp --dport 22 -m limit --limit 5/min`—rate-limited SSH, tested from Parrot.
+  - X research: AI poisoning—federated learning (15% accuracy drop), GAN fake malware—QA data validation key.
+  - Git Setup and GitHub Integration:
+    - Installed Git on .101: `sudo apt install git`, confirmed with `git --version`.
+    - Configured identity: `git config --global user.name "MrClocSecAI"` and `git config --global user.email "my-email"`.
+    - Existing SSH key (`id_ed25519`) found—generated new key for GitHub: `ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_github`.
+    - Added new key to agent: `ssh-add ~/.ssh/id_ed25519_github`, linked to GitHub (Settings > SSH keys).
+    - Tested SSH: `ssh -T git@github.com` – “Hi MrClocSecAI!” confirmed.
+    - Used existing `~/16week-upskill` dir: initialized: `git init`.
+    - Moved files (`cyber_notes.txt`, `log_list_v2.py`, `scan_sv.txt`), staged: `git add .`, committed: `git commit -m "Initial commit: Week 1-2 work"`.
+    - Linked to GitHub: `git remote add origin git@github.com:MrClocSecAI/16week-upskill.git`, pushed: `git push -u origin main`.
+    - Repo live: https://github.com/MrClocSecAI/16week-upskill – portfolio started!
+    - Insight: Git tracks progress, enables huntr.com fixes—key for AI Security Engineer role.
+  - Netcat Recon:
+    - From .102: `nc -v 192.168.56.101 22` – Banner: [SSH-2.0-OpenSSH_9.6p1], key-only confirmed. Result: "192.168.56.101: inverse host lookup failed: unknown host (UNKNOWN) [192.168.56.101] 22 (ssh) open".
+    - From .102: `nc -v 192.168.56.104 22` – Banner: [SSH-2.0-OpenSSH_9.6p1], password auth active. Result: "192.168.56.104: inverse host lookup failed: unknown host (UNKNOWN) [192.168.56.104] 22 (ssh) open".
+    - Insight: Both .101 and .104 run OpenSSH 9.6p1—port 22 open, no DNS resolution (lab norm). .101 secure with key-only, .104 vuln to password attacks (e.g., Hydra). CEH recon skill—banner grabbing and port status confirmed.
+
 This is our blueprint—let’s crush Week 2’s end and charge into AI security!
-
-
