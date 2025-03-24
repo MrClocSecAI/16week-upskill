@@ -721,14 +721,33 @@ Both .101 and .104 run OpenSSH 9.6p1—port 22 open, no DNS resolution (lab norm
   - AI Security Tie: Poisoned API mimics real ML deployment risks—bad data (like SQLi) can silently shift outcomes, QA validation key.
   - Portfolio Value: Flask vuln + fix showcases practical AI security—bridges Week 3 poisoning sim and CEH skills.
 
+- Created week_3_master_plan.md and monday_march_24_master_class.md and pushed them to the 16week-upskill github repo in preparation for week 3.
 
+Week 3:
 
+03/24
+- Module 1: Went back to the beginning basic with a jazzed up Python "hello world" script hello.py. Then delved into simple functions. 
+- Module 2: Moved on to create an iris_intro.py script. Learned how to import sklearn and view the giant data "blob"
+- Module 3: Upgraded the iris_intro.py script with "from sklearn.datasets import load_iris". Created then manipulated a function to see 
+different flowers in parsed and structured formats using a "def get_iris_data():" function. Changed range() and used "print(f"Last: {X[-1]} is {iris.target_names[y[-1]]}")"
+and other code.
+- Module 4: Created, trained, and tested iris_model.py as an introduction to a clean model.
+- Module 5: Created poison_iris_model.py to learn about data poisoning. Tested with 10%, 30%, and 50% poisoning. Compared result and observed the imacts of 
+randomization on output/%.
+- Module 6: Created iris_model_poison_mitigation.py to learn back detecting, mitigating, and neutralizing model poisoning and the potential impacts. I went through
+several iterations of the file with Grok, and learned that a smaller targeted set of poisoned data might be more impactful against training that has proctections in place. 
+The smaller dataset can cause the model to trigger false positives and corrupt data training to a great extent than large poisoned datasets that are easier to detect. Iterations included several "clean vs. poisoned" files that offered comparison data.
+- Created iris_model_logging.py which created a march_24_results.csv with model training results including accuracy and "clean vs poisoned" results.
+Here's a summary of today from Grok:
+"March 24, 2025 - Masterclass: Python 3.12.3 and AI Model Poisoning
+Completed a rigorous 10-hour training session on .101 (Ubuntu_ai) under Grok Sensei's guidance, mastering Python 3.12.3 and exploring AI model poisoning vulnerabilities. Deviated from the planned `monday_march_24_masterclass.md` file structure, leveraging `cyber_notes.txt` filenames with multiple iterations for deeper understanding:
 
+- hello.py: Developed an introductory script printing "Hello, Student," then implemented foundational functions (e.g., `def add(a, b)`). Learned Python’s interpreted nature enables rapid prototyping—variables and logic became intuitive tools for problem-solving.
+- iris_intro.py: Imported scikit-learn to load the Iris dataset (150 samples, 4 features, 3 classes). Crafted `get_iris_data()` to extract and structure X (features) and y (labels), printing formatted samples with f-strings (e.g., first/last flowers). Gained insight into data as the backbone of ML—its shape dictates model behavior.
+- iris_model.py: Constructed a clean LogisticRegression model—split data (80/20), trained, and achieved ~97% accuracy. Understood train-test splits as critical for validating generalization; high baseline accuracy reflects Iris’s clean, balanced nature.
+- poison_iris_model.py: Engineered poisoning simulations at 10%, 30%, and 50%—random label flips progressively degraded accuracy to ~60% at 50%. Targeted poisoning (e.g., setosa mislabeled) amplified impact. Learned models overfit corrupted data silently—randomness scatters, intent skews.
+- iris_model_poison_mitigation.py: Iterated extensively with Grok to detect and counter poisoning. Discovered small, targeted attacks (e.g., flipping setosa to versicolor) evade defenses via subtle false positives, corrupting training more than overt, large-scale poisoning. Robust mitigation hinges on anomaly detection—big disruptions are easier to flag.
+- iris_model_logging.py: Implemented CSV logging (`march_24_results.csv`) to record clean vs. poisoned accuracy metrics. Mastered structured data output as a QA audit trail—quantitative evidence sharpens analysis.
 
-
-
-
-
-
-
+Key Learning: Data integrity is paramount—models trust inputs implicitly, amplifying subtle poisoning over blatant attacks. Small, precise corruptions exploit this blind spot, mirroring real-world threats (e.g., federated learning vulns). My QA precision now intersects ML security—code exposes flaws, analysis forges defenses."
 

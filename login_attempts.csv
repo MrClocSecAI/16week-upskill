@@ -1,0 +1,4 @@
+username,password,status
+admin,secret,success
+admin,wrong,fail
+admin,' OR '1'='1,success
